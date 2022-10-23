@@ -6,7 +6,7 @@ import {
 } from 'typeorm';
 
 @Entity()
-export class SensorEntity {
+export class Sensor {
   @PrimaryGeneratedColumn()
   id: number;
 

@@ -3,7 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { SensorModule } from './sensor/sensor.module';
-import { SensorEntity } from './sensor/sensor.entity';
+import { Sensor } from './sensor/sensor.entity';
 
 @Module({
   imports: [
@@ -17,7 +17,7 @@ import { SensorEntity } from './sensor/sensor.entity';
       entities: ['dist/**/*.entity.js'],
       synchronize: true,
     }),
-    TypeOrmModule.forFeature([SensorEntity]),
+    TypeOrmModule.forFeature([Sensor]),
     SensorModule,
   ],
   controllers: [AppController],

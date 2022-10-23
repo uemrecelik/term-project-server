@@ -2,10 +2,10 @@ import { Module } from '@nestjs/common';
 import { SensorController } from './sensor.controller';
 import { SensorService } from './sensor.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { SensorEntity } from './sensor.entity';
+import { Sensor } from './sensor.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([SensorEntity])],
+  imports: [TypeOrmModule.forFeature([Sensor])],
   controllers: [SensorController],
   providers: [SensorService],
 })
