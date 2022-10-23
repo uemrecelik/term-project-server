@@ -1,9 +1,25 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { SensorModule } from './sensor/sensor.module';
+import { SensorEntity } from './sensor/sensor.entity';
 
 @Module({
-  imports: [],
+  imports: [
+    TypeOrmModule.forRoot({
+      type: 'mysql',
+      host: 'localhost',
+      port: 3306,
+      username: 'root',
+      password: 'root',
+      database: 'term-project',
+      entities: ['dist/**/*.entity.js'],
+      synchronize: true,
+    }),
+    TypeOrmModule.forFeature([SensorEntity]),
+    SensorModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
