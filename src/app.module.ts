@@ -4,16 +4,17 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { SensorModule } from './sensor/sensor.module';
 import { Sensor } from './sensor/sensor.entity';
+import { herokuConfig } from './heroku-config';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'localhost',
+      host: herokuConfig.host,
       port: 3306,
-      username: 'root',
-      password: 'root',
-      database: 'term-project',
+      username: herokuConfig.username,
+      password: herokuConfig.password,
+      database: herokuConfig.database,
       entities: ['dist/**/*.entity.js'],
       synchronize: true,
     }),
