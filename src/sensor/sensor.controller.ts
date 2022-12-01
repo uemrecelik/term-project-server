@@ -1,16 +1,15 @@
-import { Body, Controller, Get, Post, Query } from '@nestjs/common';
+import { Controller, Get, Post, Query } from '@nestjs/common';
 import { SensorService } from './sensor.service';
-import { SensorDto } from './sensor.dto';
 import { Sensor } from './sensor.entity';
 
 @Controller('sensor')
 export class SensorController {
   constructor(private readonly sensorService: SensorService) {}
-  @Get()
+  @Get('/all')
   getAll(): Promise<Sensor[]> {
     return this.sensorService.getAll();
   }
-  @Post()
+  @Get()
   addData(@Query('temp') temp: number, @Query('hum') hum: number): any {
     const date: Date = new Date();
     const sensorData: Sensor = {
