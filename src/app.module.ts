@@ -5,6 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { SensorModule } from './sensor/sensor.module';
 import { Sensor } from './sensor/sensor.entity';
 import { herokuConfig } from './heroku-config';
+import { SensorService } from './sensor/sensor.service';
 
 @Module({
   imports: [
@@ -22,6 +23,6 @@ import { herokuConfig } from './heroku-config';
     SensorModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, SensorService],
 })
 export class AppModule {}
