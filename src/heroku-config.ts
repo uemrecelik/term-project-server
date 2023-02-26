@@ -4,3 +4,9 @@ export const herokuConfig = {
   username: 'bf26a784b0cd1b',
   password: 'e4f36303',
 };
+export const localConfig = {
+  host: 'localhost',
+  database: 'term-project',
+  username: 'root',
+  password: 'root',
+};
