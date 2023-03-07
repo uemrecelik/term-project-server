@@ -6,15 +6,21 @@ import {
 } from 'typeorm';
 
 @Entity()
-export class Sensor {
+export class User {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
-  temperature: number;
+  username: string;
 
   @Column()
-  humidity: number;
+  email: string;
+
+  @Column()
+  password: string;
+
+  @Column()
+  plants: string;
 
   @CreateDateColumn({
     type: 'timestamp',

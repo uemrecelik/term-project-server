@@ -5,6 +5,11 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { SensorModule } from './sensor/sensor.module';
 import { Sensor } from './sensor/sensor.entity';
 import { herokuConfig } from './heroku-config';
+import { UserModule } from './user/user.module';
+import { PlantsController } from './plants/plants.controller';
+import { PlantsService } from './plants/plants.service';
+import { User } from './user/user.entity';
+import { Plants } from './plants/plants.entity';
 
 @Module({
   imports: [
@@ -18,10 +23,12 @@ import { herokuConfig } from './heroku-config';
       entities: ['dist/**/*.entity.js'],
       synchronize: true,
     }),
-    TypeOrmModule.forFeature([Sensor]),
+    TypeOrmModule.forFeature([Sensor, User, Plants]),
+    SensorModule,
+    UserModule,
     SensorModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, PlantsController],
+  providers: [AppService, PlantsService],
 })
 export class AppModule {}

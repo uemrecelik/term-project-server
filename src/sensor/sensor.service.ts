@@ -11,14 +11,11 @@ export class SensorService {
   ) {}
 
   getAll(): Promise<Sensor[]> {
-    return this.sensorRepository.find(); //getAll functions find all data in Sensor entity
+    return this.sensorRepository.find();
   }
 
   createOne(sensor: Sensor): Promise<Sensor> {
-    //Creates a new sensor entity instance and copies all entity properties
-    // from this object into a new entity.
     const data = this.sensorRepository.create(sensor);
-    //Saves a given entity in the database. If entity does not exist in the database then inserts, otherwise updates
     return this.sensorRepository.save(data);
   }
 }
