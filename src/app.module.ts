@@ -9,6 +9,7 @@ import { UserModule } from './user/user.module';
 import { PlantsController } from './plants/plants.controller';
 import { PlantsService } from './plants/plants.service';
 import { User } from './user/user.entity';
+import { Plants } from './plants/plants.entity';
 
 @Module({
   imports: [
@@ -22,7 +23,7 @@ import { User } from './user/user.entity';
       entities: ['dist/**/*.entity.js'],
       synchronize: true,
     }),
-    TypeOrmModule.forFeature([Sensor, User]),
+    TypeOrmModule.forFeature([Sensor, User, Plants]),
     SensorModule,
     UserModule,
     SensorModule,

@@ -26,14 +26,14 @@ export class Plants {
   @Column()
   sensorId: number;
 
+  @Column()
+  userId: number;
+
   @CreateDateColumn({
     type: 'timestamp',
     default: () => 'CURRENT_TIMESTAMP(6)',
   })
   created_at: Date;
-
-  @ManyToOne(() => User, (user) => user.plants)
-  user: User;
 
   @OneToOne(() => Sensor, (sensor) => sensor.id)
   sensor: Sensor;

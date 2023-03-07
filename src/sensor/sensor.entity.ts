@@ -5,20 +5,18 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
-@Entity() //This decorator is used to mark classes that will be an entity
+@Entity()
 export class Sensor {
-  @PrimaryGeneratedColumn() //Used to mark a specific class property as a table column for sensor entity id.
-  // also generated primary
+  @PrimaryGeneratedColumn()
   id: number;
 
-  @Column() //Used to mark a specific class property as a table column fpr temperature
+  @Column()
   temperature: number;
 
-  @Column() ///Used to mark a specific class property as a table column fpr humidity
+  @Column()
   humidity: number;
 
   @CreateDateColumn({
-    //This column will store a creation date of the inserted object.
     type: 'timestamp',
     default: () => 'CURRENT_TIMESTAMP(6)',
   })

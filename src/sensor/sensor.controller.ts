@@ -12,11 +12,15 @@ export class SensorController {
     return this.sensorService.getAll();
   }
   @Get()
-  addData(@Query('temp') temp: number, @Query('hum') hum: number): any {
+  addData(
+    @Query('id') id: number,
+    @Query('temp') temp: number,
+    @Query('hum') hum: number,
+  ): any {
     // Recives get requst on /sensor path and pare temp, hum values from url then creates an entity.
     const date: Date = new Date();
     const sensorData: Sensor = {
-      id: null,
+      id: id,
       temperature: temp,
       humidity: hum,
       created_at: date,
