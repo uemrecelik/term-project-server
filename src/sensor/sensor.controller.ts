@@ -11,7 +11,7 @@ export class SensorController {
     // and sends all the data in the sensor entity
     return this.sensorService.getAll();
   }
-  @Post()
+  @Get()
   addData(
     @Query('id') id: number,
     @Query('temp') temp: number,
