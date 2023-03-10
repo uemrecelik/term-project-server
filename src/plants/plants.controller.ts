@@ -1,4 +1,4 @@
-import { Body, Controller, Get, UseGuards } from '@nestjs/common';
+import { Body, Controller, Post, UseGuards } from '@nestjs/common';
 import { PlantsService } from './plants.service';
 import { Plants } from './plants.entity';
 import { AuthGuard } from '@nestjs/passport';
@@ -7,7 +7,7 @@ import { AuthGuard } from '@nestjs/passport';
 export class PlantsController {
   constructor(private readonly plantService: PlantsService) {}
 
-  @Get()
+  @Post()
   @UseGuards(AuthGuard('jwt'))
   getAll(@Body() user: { id: number; username: string }): Promise<Plants[]> {
     const userId: number = user.id;
