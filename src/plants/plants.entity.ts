@@ -25,6 +25,8 @@ export class Plants {
 
   @Column()
   sensorId: number;
+  @Column()
+  imageUrl: string;
 
   @Column()
   userId: number;
