@@ -11,6 +11,9 @@ export class Sensor {
   id: number;
 
   @Column()
+  plantId: number;
+
+  @Column()
   temperature: number;
 
   @Column()

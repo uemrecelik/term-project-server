@@ -18,4 +18,10 @@ export class SensorService {
     const data = this.sensorRepository.create(sensor);
     return this.sensorRepository.save(data);
   }
+
+  getPlantsSensor(plantId: number): Promise<Sensor[]> {
+    return this.sensorRepository.find({
+      where: { plantId: plantId },
+    });
+  }
 }
