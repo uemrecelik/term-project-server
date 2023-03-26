@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Query } from '@nestjs/common';
+import { Controller, Get, Query } from '@nestjs/common';
 import { SensorService } from './sensor.service';
 import { Sensor } from './sensor.entity';
 
@@ -31,5 +31,10 @@ export class SensorController {
   @Get('/plants-sensor')
   getPlantsSensor(@Query('id') plantId: number): Promise<Sensor[]> {
     return this.sensorService.getPlantsSensor(plantId);
+  }
+
+  @Get('/check-notification')
+  checkNotification(@Query('userId') userId: number): Promise<Sensor[]> {
+    return this.sensorService.checkNotification(userId);
   }
 }
