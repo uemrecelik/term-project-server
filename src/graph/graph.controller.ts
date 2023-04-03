@@ -12,6 +12,17 @@ export class GraphController {
     @Query('plant') plant: string,
     @Query('date') date: string,
   ): Promise<GraphDataDto[]> {
-    return this.graphService.getHourlyGraphData(plant);
+    switch (date) {
+      case 'Hourly':
+        return this.graphService.getHourlyGraphData(plant);
+      case 'Daily':
+        return this.graphService.getDailyGraphData(plant);
+      case 'Weekly':
+        return this.graphService.getWeeklyGraphData(plant);
+      case 'Monthly':
+        return this.graphService.getMonthlyGraphData(plant);
+      default:
+        throw new Error('Invalid Date Interval');
+    }
   }
 }
