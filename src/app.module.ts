@@ -10,6 +10,7 @@ import { PlantsController } from './plants/plants.controller';
 import { PlantsService } from './plants/plants.service';
 import { User } from './user/user.entity';
 import { Plants } from './plants/plants.entity';
+import { GraphModule } from './graph/graph.module';
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { Plants } from './plants/plants.entity';
     SensorModule,
     UserModule,
     SensorModule,
+    GraphModule,
   ],
   controllers: [AppController, PlantsController],
   providers: [AppService, PlantsService],

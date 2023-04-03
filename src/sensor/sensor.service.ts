@@ -37,8 +37,6 @@ export class SensorService {
     });
     const plantIds = usersPlants.map((plant: Plants) => plant.id);
 
-    console.log(plantIds);
-
     const queryBuilder = this.sensorRepository.createQueryBuilder('sensor');
 
     queryBuilder.innerJoin(
