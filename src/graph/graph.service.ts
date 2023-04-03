@@ -35,8 +35,8 @@ export class GraphService {
       .createQueryBuilder('reading')
       .select([
         "DATE_FORMAT(reading.created_at, '%H') as date",
-        'AVG(reading.temperature) as temperature',
-        'AVG(reading.humidity) as humidity',
+        'AVG(reading.temperature) as avg_temperature',
+        'AVG(reading.humidity) as avg_humidity',
       ])
       .where(
         'reading.created_at >= :startOfDay AND reading.created_at < :endOfDay AND reading.plantId = :plantId',
@@ -45,6 +45,17 @@ export class GraphService {
       .groupBy('date');
 
     const results = await queryBuilder.getRawMany();
-    return results;
+
+    return results.map(
+      (result: {
+        date: string;
+        avg_temperature: string;
+        avg_humidity: string;
+      }) => ({
+        date: result.date,
+        temperature: parseFloat(result.avg_temperature),
+        humidity: parseFloat(result.avg_humidity),
+      }),
+    );
   }
 }
