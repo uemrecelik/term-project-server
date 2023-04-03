@@ -34,7 +34,7 @@ export class GraphService {
     const queryBuilder: SelectQueryBuilder<Sensor> = this.sensorRepository
       .createQueryBuilder('reading')
       .select([
-        "DATE_FORMAT(reading.created_at, '%H') as date",
+        "DATE_FORMAT(reading.created_at, '%H:00') as date",
         'AVG(reading.temperature) as avg_temperature',
         'AVG(reading.humidity) as avg_humidity',
       ])
