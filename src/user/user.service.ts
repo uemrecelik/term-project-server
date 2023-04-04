@@ -41,4 +41,12 @@ export class UserService {
     });
     return userData;
   }
+
+  async updateUserName(username: string, userId: number): Promise<any> {
+    return this.userRepository.update({ id: userId }, { username: username });
+  }
+
+  async updateEmail(email: string, userId: number): Promise<any> {
+    return this.userRepository.update({ id: userId }, { email: email });
+  }
 }

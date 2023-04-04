@@ -23,4 +23,16 @@ export class UserController {
   getUserInfo(@Req() req) {
     return req.user;
   }
+  @Post('update-username')
+  updateUserName(
+    @Query('username') username: string,
+    @Query('id') userId: number,
+  ): Promise<any> {
+    return this.userService.updateUserName(username, userId);
+  }
+
+  @Post('update-email')
+  updateEmail(@Query('email') email: string, @Query('id') userId: number) {
+    return this.userService.updateEmail(email, userId);
+  }
 }
