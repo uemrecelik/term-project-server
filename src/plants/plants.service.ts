@@ -15,4 +15,18 @@ export class PlantsService {
       where: [{ userId: userId }],
     });
   }
+
+  async updateOptimumTemp(value: string, plantId: number): Promise<any> {
+    return this.plantsRepository.update(
+      { id: plantId },
+      { optimum_temp: Number(value) },
+    );
+  }
+
+  async updateOptimumHum(value: string, plantId: number): Promise<any> {
+    return this.plantsRepository.update(
+      { id: plantId },
+      { optimum_hum: Number(value) },
+    );
+  }
 }
