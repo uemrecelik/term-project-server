@@ -34,4 +34,11 @@ export class UserService {
       access_token: this.jwtService.sign(payload),
     };
   }
+
+  async getUserData(userId: number): Promise<User> {
+    const userData: User = await this.userRepository.findOne({
+      where: { id: userId },
+    });
+    return userData;
+  }
 }
