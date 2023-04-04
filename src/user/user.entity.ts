@@ -22,6 +22,9 @@ export class User {
   @Column()
   plants: string;
 
+  @Column()
+  imgUrl: string;
+
   @CreateDateColumn({
     type: 'timestamp',
     default: () => 'CURRENT_TIMESTAMP(6)',

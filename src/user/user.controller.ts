@@ -12,7 +12,7 @@ export class UserController {
   async login(@Req() req) {
     return this.userService.loginWithCredentials(req.user);
   }
-
+  @UseGuards(AuthGuard('jwt'))
   @Get()
   getUserData(@Query('id') userId: number): Promise<User> {
     return this.userService.getUserData(userId);
