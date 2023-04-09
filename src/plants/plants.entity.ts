@@ -32,7 +32,7 @@ export class Plants {
   @Column()
   userId: number;
 
-  @Column()
+  @Column({ length: 999 })
   description: string;
 
   @CreateDateColumn({
