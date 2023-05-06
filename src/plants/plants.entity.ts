@@ -29,8 +29,8 @@ export class Plants {
   @Column()
   imageUrl: string;
 
-  @Column('json')
-  position: JSON;
+  @Column()
+  position: string;
 
   @Column()
   userId: number;
